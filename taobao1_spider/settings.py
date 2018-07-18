@@ -54,7 +54,7 @@ DOWNLOADER_MIDDLEWARES = {
 }
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
-
+DOWNLOAD_DELAY=3
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 100
 
@@ -99,7 +99,7 @@ COOKIES_ENABLED = False
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'taobao1_spider.pipelines.Taobao1SpiderPipeline': 300,
+   'taobao1_spider.pipelines.MongoPipeline': 300,
 }
 MYSQL_HOST = 'localhost'
 MYSQL_DBNAME = 'taobao'
@@ -127,3 +127,5 @@ MYSQL_PORT = 3306
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+MONGO_URI = 'localhost'
+MONGO_DATABASE = 'taobao'

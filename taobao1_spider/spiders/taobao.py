@@ -5,7 +5,6 @@ import scrapy
 from scrapy import Request
 from taobao1_spider.items import TaobaoSpiderItem
 
-
 class TaobaoSpider(scrapy.Spider):
     name = 'taobao'
     allowed_domains = ["taobao.com"]
@@ -33,6 +32,7 @@ class TaobaoSpider(scrapy.Spider):
         pass
 
     def page(self, response):
+        # response.body 默认为二进制格式，所以要用decode解码,并传参数ignore
         body = response.body.decode('utf-8', 'ignore')
         pat_id = '"nid":"(.*?)"'  # 匹配id
         pat_now_price = '"view_price":"(.*?)"'  # 匹配价格
